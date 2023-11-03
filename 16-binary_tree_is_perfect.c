@@ -1,23 +1,20 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_perfect - checks if a binary tree is perfect
+ * binary_tree_is_perfect - checks if binary is perfect
  * @tree: root node of the tree
  *
- * Return: 1 if the tree is perfect, 0 otherwise
+ * Return: 1 if tree is perfect otherwise 0
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t height, feuille;
+	size_t longeur, feuilles;
 
 	if (tree == NULL)
 		return (0);
 
-	height = binary_tree_height(tree);
-	feuille = (size_t)1 << height;
+	longeur = binary_tree_height(tree);
+	feuilles = (size_t)1 << longeur;
 
-	int is_full = binary_tree_is_full(tree);
-
-	return (is_full && feuille == (binary_tree_leaves(tree) * 2));
+	return (binary_tree_is_full(tree) && feuilles == binary_tree_height(tree));
 }
-
